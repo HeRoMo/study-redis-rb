@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    hiredis (0.6.3)
+    redis (4.8.0)
+
+PLATFORMS
+  arm64-darwin-21
+
+DEPENDENCIES
+  hiredis
+  redis (= 4.8.0)
+
+BUNDLED WITH
+   2.3.7

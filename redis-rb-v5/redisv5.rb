@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'date'
 
 Bundler.require
 
@@ -71,7 +72,8 @@ def hset_hget(config)
     field2: 100,
     field3: true.to_s,
     field4: nil.to_s,
-    field5: MyClass.to_s,
+    field5: Date.today.to_s,
+    field6: MyClass.to_s,
   }
   pp redis.mapped_hmset(key, values)
 

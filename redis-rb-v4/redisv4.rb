@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'date'
 
 Bundler.require
 
@@ -28,6 +29,7 @@ end
 def set_get(config)
   puts "\n==== #{__method__} ===="
   redis = Redis.new(config)
+
   key = 'key-set_get-string'
   pp redis.set(key, 'hello world')
   pp "#{key}: #{redis.get(key)}"
@@ -57,7 +59,7 @@ def rpush(config)
   pp redis.rpush(key, nil)
   pp redis.rpush(key, MyClass)
 
-  pp l=redis.lrange(key,0,-1)
+  pp redis.lrange(key,0,-1)
 end
 
 def hset_hget(config)
@@ -70,7 +72,8 @@ def hset_hget(config)
     'field2' => 100,
     'field3' => true,
     'field4' => nil,
-    'field5' => MyClass,
+    'field5' => Date.today,
+    'field6' => MyClass,
   }
   pp redis.mapped_hmset(key, values)
 

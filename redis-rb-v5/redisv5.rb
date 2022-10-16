@@ -56,6 +56,7 @@ def rpush(config)
   pp redis.rpush(key, 'hello')
   pp redis.rpush(key, 100)
   pp redis.rpush(key, true.to_s)
+  pp redis.rpush(key, Time.now.to_s)
   pp redis.rpush(key, nil.to_s)
   pp redis.rpush(key, MyClass.to_s)
 
@@ -72,7 +73,7 @@ def hset_hget(config)
     field2: 100,
     field3: true.to_s,
     field4: nil.to_s,
-    field5: Date.today.to_s,
+    field5: Time.now.to_s,
     field6: MyClass.to_s,
   }
   pp redis.mapped_hmset(key, values)
